@@ -2,7 +2,7 @@
 name = "keypress"
 version = "0.1.3"
 description = "Cross-Platform Key Handling Module: Effortlessly Detect and Describe Keyboard Events"
-authors = ["hyperoot <hyperoot.tech@proton.me>"]
+authors = ["hyperoot <rajesh@hyperoot.dev>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
