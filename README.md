@@ -7,12 +7,7 @@
 </a>
 </p>
 
-**keypress** is a Python package designed to streamline the process of following hashtags across various social media platforms. By allowing users to specify collections of hashtags (e.g., Python, DevOps), this tool helps you stay updated with the latest trends and discussions within your areas of interest.
-
-## Features
-
-- **Follow Hashtags**: Track hashtags from a list of collections.
-- **Organize Tags**: Group hashtags into collections for easy management.
+This module offers a comprehensive solution for handling keyboard input across platforms. Whether you’re detecting simple keypresses or complex key combinations, our `get_key` function and `Keys` constants deliver robust functionality with clear, descriptive outputs. Perfect for developers needing to implement precise keyboard interactions in their applications.
 
 ## Installation
 
@@ -22,12 +17,21 @@ You can install **keypress** via [pip](https://pypi.org/project/keypress/):
 pip install keypress
 ```
 
-## Usage
+## Example
 
 You can run **keypress** in your terminal.
 
-```bash
-python keypress
+```python
+from keypress import Keys, get_key
+
+if __name__ == "__main__":
+    key = ""
+    while key not in ["q", Keys.ENTER]:
+        key = get_key()
+        if key.is_printable:
+            print(key)
+        print(key.key_codes)
+        print(key.description)
 ```
 
 ## Contributing
