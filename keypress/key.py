@@ -58,6 +58,7 @@ class _PlatformIndependentKeys:
     ENTER = (13,)
     ESC = (27,)
     TAB = (9,)
+    SPACEBAR = (32,)
 
     # Alphabets
     ALPHABETS = {chr(i): i for i in range(65, 91)}  # A-Z
@@ -176,6 +177,7 @@ class Keys(_PlatformIndependentKeys):
             "ENTER": Keys.ENTER,
             "TAB": Keys.TAB,
             "ESC": Keys.ESC,
+            "SPACEBAR": Keys.SPACEBAR,
             "BACKSPACE": Keys.BACKSPACE,
             "DELETE": Keys.DELETE,
             "HOME": Keys.HOME,
@@ -262,6 +264,8 @@ def get_description(key_codes: Tuple[int, ...], is_printable: bool) -> str:
             return "Tab"
         if key_codes == Keys.ESC:
             return "Esc"
+        if key_codes == Keys.SPACEBAR:
+            return "Spacebar"
         if key_codes == Keys.BACKSPACE:
             return "Backspace"
         if key_codes == Keys.DELETE:
