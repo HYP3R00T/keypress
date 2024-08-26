@@ -223,10 +223,18 @@ def get_key() -> Key:
         try:
             tty.setraw(fd)
             ch = sys.stdin.read(1)
-            key_codes = (ord(ch),)
-            is_printable = ch.isprintable()
-            description = get_description(key_codes, is_printable)
-            return Key(ch, key_codes, is_printable, description)
+            key_codes = [ord(ch)]
+
+            # If the first character is an escape character, read more bytes
+            if key_codes[0] == 27:  # ESC character
+                ch = sys.stdin.read(2)  # Read the next two characters
+                key_codes.extend(ord(c) for c in ch)
+
+            key_codes_tuple = tuple(key_codes)
+            is_printable = len(key_codes_tuple) == 1 and chr(key_codes_tuple[0]).isprintable()
+            description = get_description(key_codes_tuple, is_printable)
+            key = "".join(chr(c) for c in key_codes_tuple)
+            return Key(key, key_codes_tuple, is_printable, description)
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
 
