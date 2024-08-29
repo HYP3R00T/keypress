@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "keypress"
-version = "0.1.6"
+version = "0.1.7"
 description = "Cross-Platform Key Handling Module: Effortlessly Detect and Describe Keyboard Events"
 authors = ["hyperoot <rajesh@hyperoot.dev>"]
 readme = "README.md"
